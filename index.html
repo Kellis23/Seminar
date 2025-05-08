@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelsey Ellis</title>
+    <style>
+        /* Tabs styling */
+        .tabs {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #e0eafc;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            outline: none;
+            padding: 14px 36px 10px 36px;
+            margin: 0 2px;
+            border-radius: 18px 18px 0 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2d3a4b;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            background: #fff;
+            color: #218c5a;
+            border-bottom: 3px solid #218c5a;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #e8f5e9 0%, #b2dfdb 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 720px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 48px 40px 40px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.10), 0 1.5px 4px rgba(44,62,80,0.06);
+        }
+        h1 {
+            color: #218c5a;
+            font-size: 2.3rem;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            text-align: left;
+        }
+        p {
+            color: #3a4a5a;
+            font-size: 1.13rem;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(90deg, #218c5a 0%, #43e97b 100%);
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(33,140,90,0.08);
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            margin-right: 10px;
+        }
+        .button-link.github {
+            background: linear-gradient(90deg, #24292e 0%, #218c5a 100%);
+        }
+        .button-link:hover {
+            background: linear-gradient(90deg, #43e97b 0%, #218c5a 100%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(33,140,90,0.13);
+        }
+        .luna-img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.13);
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('home')">Home</button>
+            <button class="tab-button" onclick="showTab('research')">Research</button>
+            <button class="tab-button" onclick="showTab('luna')">Luna</button>
+            
+        </div>
+        <div id="home" class="tab-content active">
+            <h1>Kelsey Ellis</h1>
+            <p> I am a PhD Student at George Mason University. My research focuses on biomathematics and modeling. My goal is to go into industry and apply my skills in a practical setting. </p>
+            <a class="button-link" href="Kelsey_Ellis_CV.pdf" target="_blank" rel="noopener">View My CV</a>
+            <a class="button-link github" href="https://github.com/kellis23" target="_blank" rel="noopener">My GitHub</a>
+        </div>
+        <div id="luna" class="tab-content">
+            <h1>Meet Luna</h1>
+            <img class="luna-img" src="Luna.jpg" alt="Luna">
+            <p>Luna is my wonderful companion. She brings joy and energy to my life!</p>
+        </div>
+        <div id="research" class="tab-content">
+            <h1>My Research</h1>
+            <p>My current work is multi-dimensional modeling and developing mathematical models to understand Long COVID using probability theory, dynamical systems, and numerical methods.</p>
+            <img src="BothPopFun.gif" alt="Research Animation" style="max-width:100%; border-radius:12px; box-shadow:0 4px 16px rgba(44,62,80,0.13); margin-top:18px;">
+        </div>
+    </div>
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Set active button
+            var tabOrder = ['home', 'research', 'luna'];
+            var idx = tabOrder.indexOf(tabId);
+            if (idx !== -1) {
+                document.querySelectorAll('.tab-button')[idx].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
